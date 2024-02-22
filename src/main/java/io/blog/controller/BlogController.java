@@ -15,12 +15,6 @@ import java.util.logging.Logger;
 @RequestMapping("/blog")
 @CrossOrigin(origins = "http://localhost:3000")
 public class BlogController {
-
-
-
-
-
-
     @Autowired
     private BlogService blogService;
 
@@ -47,7 +41,6 @@ public class BlogController {
     @PostMapping("/{blogId}")
     public String updateBlog(@RequestBody Blog blog, @PathVariable(name = "blogId") int blogId) {
 
-        // System.out.println(blogId);
         Blog item = blogService.findById(blogId).orElseThrow();
 
         if(item.getId() != 0) {
