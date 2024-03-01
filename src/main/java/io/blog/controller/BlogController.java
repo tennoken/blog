@@ -26,6 +26,11 @@ public class BlogController {
         return blogService.findAll();
     }
 
+    @GetMapping("/{blogId}")
+    public Blog findBlogById(@PathVariable(value = "blogId") int id) {
+        return blogService.findById(id).orElseThrow();
+    }
+
 
 
     @PostMapping("/save")
